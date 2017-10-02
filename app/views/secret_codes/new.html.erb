@@ -1,0 +1,17 @@
+<%= form_tag("/secret_codes", class: "form-horizontal secret_code") do %>
+  <div class="form-group">
+    <div class="col-lg-10">
+      <%= label_tag(:no_of_codes, "No of codes:") %>
+      <%= select_tag(:no_of_codes, options_for_select(SecretCode::NO_OF_CODES, 10), :class => 'form-control') %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <div class="col-lg-offset-2 col-lg-10">
+      <%= submit_tag 'Generate', :class => 'btn btn-primary' %>
+      <%= link_to t('.back', :default => t("helpers.links.back")),
+            secret_codes_path,
+            :class => 'btn btn-primary' %>
+    </div>
+  </div>
+<% end %> 
